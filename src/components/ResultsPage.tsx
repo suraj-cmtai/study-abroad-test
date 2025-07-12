@@ -249,13 +249,13 @@ export const ResultsPage = ({ recommendations, answers, questions, userDetails, 
           )}
           
           {/* Debug Information */}
-          <div className="mt-4 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+          {/* <div className="mt-4 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
             <p className="text-sm text-yellow-700">
               <strong>Debug Info:</strong> UserDetails is {userDetails ? 'present' : 'null'} | 
               Type: {typeof userDetails} | 
               Keys: {userDetails ? Object.keys(userDetails).join(', ') : 'none'}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -407,7 +407,7 @@ export const ResultsPage = ({ recommendations, answers, questions, userDetails, 
         </Button>
         
         {/* Manual Save Button for debugging */}
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <Button
             onClick={async () => {
               try {
@@ -462,7 +462,7 @@ export const ResultsPage = ({ recommendations, answers, questions, userDetails, 
           >
             Save Test Data (Debug)
           </Button>
-        </div>
+        </div> */}
         
         <div className="text-sm text-gray-500 max-w-2xl mx-auto">
           Remember, this assessment provides guidance based on your current preferences. 
