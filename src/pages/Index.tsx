@@ -112,24 +112,26 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-teal-50">
-      {currentPhase === 'welcome' && (
-        <WelcomePage onStartTest={startTest} />
-      )}
-      
-      {currentPhase === 'testing' && (
-        <TestInterface onCompleteTest={completeTest} />
-      )}
-      
-      {currentPhase === 'results' && (
-        <ResultsPage 
-          recommendations={careerRecommendations}
-          answers={testAnswers}
-          questions={testQuestions}
-          userDetails={userDetails}
-          onRetakeTest={retakeTest}
-          isAnalyzing={isAnalyzing}
-        />
-      )}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {currentPhase === 'welcome' && (
+          <WelcomePage onStartTest={startTest} />
+        )}
+        
+        {currentPhase === 'testing' && (
+          <TestInterface onCompleteTest={completeTest} />
+        )}
+        
+        {currentPhase === 'results' && (
+          <ResultsPage 
+            recommendations={careerRecommendations}
+            answers={testAnswers}
+            questions={testQuestions}
+            userDetails={userDetails}
+            onRetakeTest={retakeTest}
+            isAnalyzing={isAnalyzing}
+          />
+        )}
+      </div>
     </div>
   );
 };

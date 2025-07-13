@@ -47,18 +47,18 @@ export const generateRandomQuestions = async (): Promise<AIQuestion[]> => {
     const totalQuestions = 10;
     
     console.log(`Generating ${totalQuestions} questions in a single API call...`);
-    
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        messages: [
-          {
-            role: 'system',
+      
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-4o-mini',
+          messages: [
+            {
+              role: 'system',
             content: `You are a psychometric test expert. Generate 10 unique psychometric questions for career assessment targeted at students.
 
             First, select 10 different relevant categories from this list: ${psychometricCategories.join(', ')}.
@@ -73,43 +73,43 @@ export const generateRandomQuestions = async (): Promise<AIQuestion[]> => {
               }
             ]
 
-            Requirements:
+              Requirements:
             - Select 10 different categories from the provided list
             - Generate exactly 1 question for each selected category
             - Questions should help assess personality, aptitude, and career preferences
             - 4 distinct answer options for each question
-            - Student-friendly language
+              - Student-friendly language
             - Each option should represent different personality traits or preferences
             - Ensure questions are relevant to the available courses: ${JSON.stringify(cachedCourses.map(c => c.title))}
             - Make sure each question covers a different aspect of personality/career assessment`
-          }
-        ],
+            }
+          ],
         max_tokens: 2000,
-        temperature: 0.8
-      })
-    });
+          temperature: 0.8
+        })
+      });
 
-    if (!response.ok) {
-      throw new Error(`OpenAI API error: ${response.status} - ${response.statusText}`);
-    }
+      if (!response.ok) {
+        throw new Error(`OpenAI API error: ${response.status} - ${response.statusText}`);
+      }
 
-    const data = await response.json();
-    const content = data.choices[0].message.content.trim();
+      const data = await response.json();
+      const content = data.choices[0].message.content.trim();
     
     // Use regex to extract JSON from the response
     const jsonMatch = content.match(/\[[\s\S]*\]/);
     if (!jsonMatch) {
       throw new Error("No JSON array found in AI response");
     }
-    
-    // Parse the JSON response
+      
+      // Parse the JSON response
     const questionsData = JSON.parse(jsonMatch[0]);
-    
+      
     const allQuestions: AIQuestion[] = questionsData.map((questionData: any, index: number) => ({
       id: index + 1,
-      question: questionData.question,
-      options: questionData.options,
-      category: questionData.category
+        question: questionData.question,
+        options: questionData.options,
+        category: questionData.category
     }));
     
     console.log(`Successfully generated ${allQuestions.length} AI questions`);
@@ -150,12 +150,12 @@ export const analyzeAnswersWithAI = async (answers: any[]): Promise<any[]> => {
               {
             "title": "Course Title",
             "description": "Why this course fits",
-            "matchPercentage": 85,
-            "skills": ["Skill 1", "Skill 2", "Skill 3", "Skill 4"],
+                "matchPercentage": 85,
+                "skills": ["Skill 1", "Skill 2", "Skill 3", "Skill 4"],
             "educationPath": ["Step 1", "Step 2"],
             "id": "course id",
-          }
-          ]
+              }
+            ]
 
             Base recommendations on the student's answer patterns and provide realistic, actionable career paths. 
             Do not recommend any course not in the provided list.

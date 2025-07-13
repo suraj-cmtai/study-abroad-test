@@ -212,13 +212,13 @@ export const ResultsPage = ({ recommendations, answers, questions, userDetails, 
 
   if (isAnalyzing) {
     return (
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="py-6 sm:py-8">
         <div className="text-center">
-          <Loader2 className="h-16 w-16 text-blue-600 mx-auto mb-4 animate-spin" />
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4">
+          <Loader2 className="h-12 w-12 sm:h-16 sm:w-16 text-blue-600 mx-auto mb-4 animate-spin" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4">
             Analyzing Your Responses
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Our AI is carefully analyzing your responses to provide personalized career recommendations...
           </p>
         </div>
@@ -227,127 +227,118 @@ export const ResultsPage = ({ recommendations, answers, questions, userDetails, 
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <div className="py-6 sm:py-8">
       {/* Header */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-8 sm:mb-12">
         <div className="mb-6">
-          <Trophy className="h-16 w-16 text-yellow-500 mx-auto mb-4" />
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4">
+          <Trophy className="h-12 w-12 sm:h-16 sm:w-16 text-yellow-500 mx-auto mb-4" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4">
             Your Career Profile
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Based on your responses, we've identified careers that align with your personality and strengths.
           </p>
           {userDetails && (
-            <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <p className="text-sm text-blue-700">
+            <div className="mt-4 p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200 mx-4">
+              <p className="text-xs sm:text-sm text-blue-700">
                 <strong>Name:</strong> {userDetails.name} | 
                 <strong> Email:</strong> {userDetails.email} | 
                 <strong> Phone:</strong> {userDetails.phone}
               </p>
             </div>
           )}
-          
-          {/* Debug Information */}
-          {/* <div className="mt-4 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-            <p className="text-sm text-yellow-700">
-              <strong>Debug Info:</strong> UserDetails is {userDetails ? 'present' : 'null'} | 
-              Type: {typeof userDetails} | 
-              Keys: {userDetails ? Object.keys(userDetails).join(', ') : 'none'}
-            </p>
-          </div> */}
         </div>
       </div>
 
       {/* Quick Stats */}
-      <div className="grid md:grid-cols-4 gap-4 mb-12">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">
         <Card className="text-center">
-          <CardContent className="pt-6">
-            <div className="text-2xl font-bold text-blue-600">{answers.length}</div>
-            <div className="text-sm text-gray-600">Questions Answered</div>
+          <CardContent className="pt-4 sm:pt-6">
+            <div className="text-xl sm:text-2xl font-bold text-blue-600">{answers.length}</div>
+            <div className="text-xs sm:text-sm text-gray-600">Questions Answered</div>
           </CardContent>
         </Card>
         <Card className="text-center">
-          <CardContent className="pt-6">
-            <div className="text-2xl font-bold text-teal-600">{Math.round(avgResponseTime)}s</div>
-            <div className="text-sm text-gray-600">Avg Response Time</div>
+          <CardContent className="pt-4 sm:pt-6">
+            <div className="text-xl sm:text-2xl font-bold text-teal-600">{Math.round(avgResponseTime)}s</div>
+            <div className="text-xs sm:text-sm text-gray-600">Avg Response Time</div>
           </CardContent>
         </Card>
         <Card className="text-center">
-          <CardContent className="pt-6">
-            <div className="text-2xl font-bold text-orange-600">{recommendations.length}</div>
-            <div className="text-sm text-gray-600">Career Matches</div>
+          <CardContent className="pt-4 sm:pt-6">
+            <div className="text-xl sm:text-2xl font-bold text-orange-600">{recommendations.length}</div>
+            <div className="text-xs sm:text-sm text-gray-600">Career Matches</div>
           </CardContent>
         </Card>
         <Card className="text-center">
-          <CardContent className="pt-6">
-            <div className="text-2xl font-bold text-green-600">{Math.round(recommendations[0]?.matchPercentage || 0)}%</div>
-            <div className="text-sm text-gray-600">Best Match</div>
+          <CardContent className="pt-4 sm:pt-6">
+            <div className="text-xl sm:text-2xl font-bold text-green-600">{Math.round(recommendations[0]?.matchPercentage || 0)}%</div>
+            <div className="text-xs sm:text-sm text-gray-600">Best Match</div>
           </CardContent>
         </Card>
       </div>
 
       {/* Career Recommendations */}
-      <div className="mb-12">
-        <h2 className="text-3xl font-bold text-center mb-8">Your Top Career Matches</h2>
-        <div className="space-y-6">
+      <div className="mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">Your Top Career Matches</h2>
+        <div className="space-y-4 sm:space-y-6">
           {recommendations.map((career, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300 flex flex-col md:flex-row">
+            <Card key={index} className="hover:shadow-lg transition-shadow duration-300 flex flex-col lg:flex-row">
               {/* Course Image (if present) */}
               {career.image && (
-                <div className="md:w-1/4 flex-shrink-0 flex items-center justify-center p-4">
-                  <img src={career.image} alt={career.title} className="rounded-lg shadow-md w-full h-40 object-cover" />
+                <div className="lg:w-1/4 flex-shrink-0 flex items-center justify-center p-3 sm:p-4">
+                  <img src={career.image} alt={career.title} className="rounded-lg shadow-md w-full h-32 sm:h-40 object-cover" />
                 </div>
               )}
-              <div className={career.image ? "md:w-3/4 flex-1 flex flex-col" : "flex-1 flex flex-col"}>
-              <CardHeader>
-                <div className="flex items-start justify-between">
+              <div className={career.image ? "lg:w-3/4 flex-1 flex flex-col" : "flex-1 flex flex-col"}>
+              <CardHeader className="pb-3 sm:pb-4">
+                <div className="flex items-start justify-between flex-wrap gap-2">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2 flex-wrap">
+                      <Badge variant="secondary" className="bg-blue-100 text-blue-800 text-xs">
                         #{index + 1} Match
                       </Badge>
-                      <Badge variant="outline" className="text-green-600 border-green-600">
+                      <Badge variant="outline" className="text-green-600 border-green-600 text-xs">
                         {career.matchPercentage}% Match
                       </Badge>
                     </div>
-                    <CardTitle className="text-2xl text-gray-800">{career.title}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl md:text-2xl text-gray-800 break-words">{career.title}</CardTitle>
                   </div>
                   <div className="text-right">
-                    <Progress value={career.matchPercentage} className="w-24 mb-2" />
-                    <div className="text-sm text-gray-600">{career.matchPercentage}%</div>
+                    <Progress value={career.matchPercentage} className="w-16 sm:w-24 mb-2" />
+                    <div className="text-xs sm:text-sm text-gray-600">{career.matchPercentage}%</div>
                   </div>
                 </div>
               </CardHeader>
                 <CardContent className="flex-1 flex flex-col justify-between">
                   <div>
-                <CardDescription className="text-base mb-6 leading-relaxed">
+                <CardDescription className="text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
                   {career.description}
                 </CardDescription>
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                      <TrendingUp className="h-4 w-4" />
+                    <h4 className="font-semibold text-gray-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
+                      <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4" />
                       Key Skills Required
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1 sm:gap-2">
                       {career.skills.map((skill, skillIndex) => (
-                        <Badge key={skillIndex} variant="outline" className="text-blue-600 border-blue-200">
+                        <Badge key={skillIndex} variant="outline" className="text-blue-600 border-blue-200 text-xs">
                           {skill}
                         </Badge>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                      <BookOpen className="h-4 w-4" />
+                    <h4 className="font-semibold text-gray-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
+                      <BookOpen className="h-3 w-3 sm:h-4 sm:w-4" />
                       Education Paths
                     </h4>
                     <ul className="space-y-1">
                       {career.educationPath.map((path, pathIndex) => (
-                        <li key={pathIndex} className="text-sm text-gray-600 flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div>
-                          {path}
+                        <li key={pathIndex} className="text-xs sm:text-sm text-gray-600 flex items-center gap-2">
+                          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-teal-500 rounded-full flex-shrink-0"></div>
+                          <span className="break-words">{path}</span>
                         </li>
                       ))}
                     </ul>
@@ -356,12 +347,12 @@ export const ResultsPage = ({ recommendations, answers, questions, userDetails, 
                   </div>
                   {/* View Course Button */}
                   {career.link && (
-                    <div className="mt-6 flex justify-end">
+                    <div className="mt-4 sm:mt-6 flex justify-end">
                       <a
                         href={career.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-6 py-2 bg-orange-500 text-white font-semibold rounded-full shadow hover:bg-orange-600 transition-colors duration-200"
+                        className="inline-block px-4 sm:px-6 py-2 bg-orange-500 text-white font-semibold rounded-full shadow hover:bg-orange-600 transition-colors duration-200 text-sm sm:text-base"
                       >
                         View Course
                       </a>
@@ -375,19 +366,19 @@ export const ResultsPage = ({ recommendations, answers, questions, userDetails, 
       </div>
 
       {/* Personality Insights */}
-      <Card className="mb-8 bg-gradient-to-r from-blue-50 to-teal-50 border-blue-200">
+      <Card className="mb-6 sm:mb-8 bg-gradient-to-r from-blue-50 to-teal-50 border-blue-200">
         <CardHeader>
-          <CardTitle className="text-center text-2xl text-blue-800 flex items-center justify-center gap-2">
-            <Users className="h-6 w-6" />
+          <CardTitle className="text-center text-xl sm:text-2xl text-blue-800 flex items-center justify-center gap-2">
+            <Users className="h-5 w-5 sm:h-6 sm:w-6" />
             Your Response Pattern
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
             {Object.entries(categories).map(([category, count]) => (
               <div key={category} className="text-center">
-                <div className="text-2xl font-bold text-teal-600">{count}</div>
-                <div className="text-sm text-gray-600 capitalize">{category.replace(/([A-Z])/g, ' $1').trim()}</div>
+                <div className="text-xl sm:text-2xl font-bold text-teal-600">{count}</div>
+                <div className="text-xs sm:text-sm text-gray-600 capitalize break-words">{category.replace(/([A-Z])/g, ' $1').trim()}</div>
               </div>
             ))}
           </div>
@@ -400,71 +391,13 @@ export const ResultsPage = ({ recommendations, answers, questions, userDetails, 
           onClick={onRetakeTest}
           variant="outline"
           size="lg"
-          className="px-8 py-3 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300"
+          className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 w-full sm:w-auto text-base sm:text-lg"
         >
           <RotateCcw className="mr-2 h-4 w-4" />
           Retake Assessment
         </Button>
         
-        {/* Manual Save Button for debugging */}
-        {/* <div className="mt-4">
-          <Button
-            onClick={async () => {
-              try {
-                const testDuration = answers.reduce((sum, answer) => sum + answer.timeSpent, 0);
-                const totalQuestions = questions.length;
-
-                const testData = {
-                  questions: questions.map(q => ({
-                    id: q.id,
-                    question: q.question,
-                    options: q.options,
-                    category: q.category
-                  })),
-                  answers: answers,
-                  recommendations: recommendations,
-                  userDetails: userDetails,
-                  testDuration: Math.round(testDuration),
-                  totalQuestions: totalQuestions
-                };
-
-                const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
-                const response = await fetch(`${baseUrl}/api/routes/test`, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(testData)
-                });
-
-                if (response.ok) {
-                  const result = await response.json();
-                  setModalTitle('Success');
-                  setModalMessage(`Test data saved successfully! ID: ${result.data?.id}`);
-                  setIsSuccess(true);
-                  setIsSuccessModalOpen(true);
-                } else {
-                  const errorText = await response.text();
-                  setModalTitle('Error');
-                  setModalMessage(`Failed to save: ${response.status} - ${errorText}`);
-                  setIsSuccess(false);
-                  setIsErrorModalOpen(true);
-                }
-              } catch (error) {
-                setModalTitle('Error');
-                setModalMessage(`Error: ${error}`);
-                setIsSuccess(false);
-                setIsErrorModalOpen(true);
-              }
-            }}
-            size="sm"
-            className="bg-green-600 hover:bg-green-700 text-white"
-          >
-            Save Test Data (Debug)
-          </Button>
-        </div> */}
-        
-        <div className="text-sm text-gray-500 max-w-2xl mx-auto">
+        <div className="text-xs sm:text-sm text-gray-500 max-w-2xl mx-auto px-4">
           Remember, this assessment provides guidance based on your current preferences. 
           Your interests and strengths may evolve over time, so feel free to retake this test as you grow.
         </div>

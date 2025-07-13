@@ -43,25 +43,25 @@ export const TestLoader = () => {
   const CurrentIcon = loadingSteps[currentStep].icon;
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="flex items-center justify-center min-h-[60vh]">
-        <div className="text-center">
+    <div className="py-6 sm:py-8">
+      <div className="flex items-center justify-center min-h-[50vh] sm:min-h-[60vh]">
+        <div className="text-center px-4">
           <div className={`transition-all duration-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            <div className="relative mb-8">
-              <CurrentIcon className="h-12 w-12 text-primary mx-auto animate-pulse" />
-              <div className="absolute inset-0 h-12 w-12 mx-auto rounded-full bg-primary/20 animate-ping"></div>
+            <div className="relative mb-6 sm:mb-8">
+              <CurrentIcon className="h-8 w-8 sm:h-12 sm:w-12 text-primary mx-auto animate-pulse" />
+              <div className="absolute inset-0 h-8 w-8 sm:h-12 sm:w-12 mx-auto rounded-full bg-primary/20 animate-ping"></div>
             </div>
             
-            <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
               {loadingSteps[currentStep].message}
             </h2>
             
-            <div className="flex justify-center mb-6">
-              <div className="flex space-x-2">
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <div className="flex space-x-1 sm:space-x-2">
                 {loadingSteps.map((_, index) => (
                   <div
                     key={index}
-                    className={`h-2 w-8 rounded-full transition-all duration-500 ${
+                    className={`h-1.5 w-6 sm:h-2 sm:w-8 rounded-full transition-all duration-500 ${
                       index <= currentStep 
                         ? 'bg-primary' 
                         : 'bg-muted'
@@ -71,7 +71,7 @@ export const TestLoader = () => {
               </div>
             </div>
             
-            <p className="text-muted-foreground animate-pulse">
+            <p className="text-sm sm:text-base text-muted-foreground animate-pulse">
               Please wait while we prepare your personalized assessment...
             </p>
           </div>

@@ -1,19 +1,17 @@
+import { Clock } from 'lucide-react';
+
 interface TestTimerProps {
   timeRemaining: number;
 }
 
 export const TestTimer = ({ timeRemaining }: TestTimerProps) => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
-      <div className="container mx-auto max-w-4xl">
-        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-          <div 
-            className={`h-full transition-all duration-1000 ease-linear ${
-              timeRemaining <= 10 ? 'bg-red-500' : 'bg-blue-500'
-            }`}
-            style={{ width: `${(timeRemaining / 30) * 100}%` }}
-          ></div>
-        </div>
+    <div className="text-center mt-4 sm:mt-6">
+      <div className="flex items-center justify-center gap-2 text-sm sm:text-base text-gray-600">
+        <Clock className="h-4 w-4 sm:h-5 sm:w-5" />
+        <span className={`font-semibold ${timeRemaining <= 10 ? 'text-red-500' : 'text-gray-700'}`}>
+          {timeRemaining} seconds remaining
+        </span>
       </div>
     </div>
   );
