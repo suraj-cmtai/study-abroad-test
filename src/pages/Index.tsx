@@ -4,6 +4,8 @@ import { TestInterface } from '../components/TestInterface';
 import { ResultsPage } from '../components/ResultsPage';
 import { WelcomePage } from '../components/WelcomePage';
 import { analyzeAnswersWithAI, AIQuestion } from '../services/openai';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export type TestPhase = 'welcome' | 'testing' | 'results';
 
@@ -112,6 +114,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-teal-50">
+      <Header />
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {currentPhase === 'welcome' && (
           <WelcomePage onStartTest={startTest} />
@@ -132,6 +135,7 @@ const Index = () => {
           />
         )}
       </div>
+      <Footer />
     </div>
   );
 };

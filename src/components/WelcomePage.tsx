@@ -193,7 +193,7 @@ export const WelcomePage = ({ onStartTest }: WelcomePageProps) => {
       </Card>
 
       {/* User Details Form */}
-      <Card className="mb-6 sm:mb-8 bg-white border-blue-200 shadow-lg">
+      <Card id="test-form" className="mb-6 sm:mb-8 bg-white border-blue-200 shadow-lg">
         <CardHeader>
           <CardTitle className="text-center text-xl sm:text-2xl text-blue-800 flex items-center justify-center gap-2">
             <User className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -205,7 +205,7 @@ export const WelcomePage = ({ onStartTest }: WelcomePageProps) => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <form id="test-form" onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 scroll-mt-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div className="space-y-2">
                 <Label
